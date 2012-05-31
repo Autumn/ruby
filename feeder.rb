@@ -42,10 +42,11 @@ end
 
 def parse_item(item)
     title = item.xpath("//title").text
+    url = item.xpath("//url").text
     if watching(title)
         puts "<item>"
-        puts item.xpath("//title")
-        puts item.xpath("//url")
+        puts "<title>#{title}</title>"
+        puts "<link>#{url}</link>"
         puts "</item>" 
     end
 
