@@ -23,8 +23,6 @@ def watching(title)
             watching = true
         elsif /Haiyore! Nyaruko-san/ =~ title
             watching = true
-        elsif /Medaka Box/ =~ title
-            watching = true
         end
     elsif /\[Mazui\]/ =~ title and /Hyouka/ =~ title
         watching = true
