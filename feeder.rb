@@ -1,8 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
 
-# feed = Nokogiri::HTML(open("http://tokyotosho.info/rss.php?filter=1"))
-
 def open_feed(url)
     feed = open(url).read
     feed = feed.gsub(/<link>/, "<url>")
@@ -14,7 +12,7 @@ end
 
 def watching(title)
     watching = false
-    if /HorribleSubs/ =~ title and /\[1080p\]/ =~ title
+    if /\[HorribleSubs\]/ =~ title and /\[1080p\]/ =~ title
         if /Sakamichi no Apollon/ =~ title
             watching = true
         elsif /Tsuritama/ =~ title
@@ -70,6 +68,6 @@ def print_feed(url)
     end
 end
 
-
+begin_feed()
 print_feed("http://tokyotosho.info/rss.php?filter=1")
 print_feed("http://tokyotosho.info/rss.php?filter=8")
